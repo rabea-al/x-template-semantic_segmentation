@@ -175,7 +175,7 @@ class EarlyStopping:
         self.early_stop = False
         self.delta = delta
         self.trace_func = trace_func
-        self.val_iou_max = -np.Inf
+        self.val_iou_max = -np.inf
         self.final_e = 1
         self.n_epoch = n_epoch
 

@@ -5,19 +5,19 @@ from tqdm import tqdm
 @xai_component
 class PrepareButterflyDataset(Component):
 
-    def __init__(self):
-        self.done = False
         
     def execute(self, ctx) -> None:
 
-        fn = "leedsbutterfly_dataset_v1.0.zip"
+        fn = "leedsbutterfly_dataset_v1.1.zip"
+
 
         if not os.path.exists(fn):
 
             print("Downloading Leeds Butterfly dataset...")
 
             import requests
-            url = 'http://www.josiahwang.com/dataset/leedsbutterfly/leedsbutterfly_dataset_v1.0.zip'
+            url = 'https://zenodo.org/records/7559420/files/leedsbutterfly_dataset_v1.1.zip?download=1'
+
             #the server requires a user header to fetch
             headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.0.0 Safari/537.36'}
 
@@ -37,7 +37,7 @@ class PrepareButterflyDataset(Component):
             print("Extracting dataset from zip file...")
 
             import zipfile
-            with zipfile.ZipFile("leedsbutterfly_dataset_v1.0.zip","r") as zip_ref:
+            with zipfile.ZipFile("leedsbutterfly_dataset_v1.1.zip","r") as zip_ref:
                 zip_ref.extractall(".")
 
             print("Leeds dataset successfully extracted.")
